@@ -1,5 +1,6 @@
 import random
 import jogos
+import os
 
 def mensagem_de_abertura():
     print("******************************************")
@@ -7,12 +8,19 @@ def mensagem_de_abertura():
     print('******************************************\n')
 
 
-def carrega_palavra_secreta(primeira_linha_valida=0, nome_arquivo="palavras.txt"):
-    arquivo = open("palavras.txt", "r")
-    palavras = []
+def carrega_palavra_secreta(primeira_linha_valida=0):
+    caminho_arquivo = os.path.join(os.path.dirname(__file__),"palavras.txt")
+    with open(caminho_arquivo, "r", encoding="utf-8") as arquivo:
+        palavras = [linha.strip() for linha in arquivo]   
 
-    for linha in arquivo:
-        palavras.append(linha.strip())
+    """
+    def carrega_palavra_secreta(primeira_linha_valida=0):
+    caminho_arquivo = os.path.join(os.path.dirname(__file__), "palavras.txt")
+    with open(caminho_arquivo, "r", encoding="utf-8") as arquivo:
+        palavras = [linha.strip() for linha in arquivo]
+    """
+    # for linha in arquivo:
+    #     palavras.append(linha.strip())
     arquivo.close()
 
     numero = random.randrange(primeira_linha_valida, len(palavras))
@@ -75,46 +83,46 @@ def mensagem_derrota(palavra_secreta):
 
 
 def desenha_forca(tentativas):
-    print("  _______     ")
-    print(" |/      |    ")
+    print(r"  _______     ")
+    print(r" |/      |    ")
 
     if (tentativas == 6):
-        print(" |      (_)   ")
-        print(" |            ")
-        print(" |            ")
-        print(" |            ")
+        print(r" |      (_)   ")
+        print(r" |            ")
+        print(r" |            ")
+        print(r" |            ")
     elif (tentativas == 5):
-        print(" |      (_)   ")
-        print(" |      \     ")
-        print(" |            ")
-        print(" |            ")
+        print(r" |      (_)   ")
+        print(r" |      \     ")
+        print(r" |            ")
+        print(r" |            ")
     elif (tentativas == 4):
-        print(" |      (_)   ")
-        print(" |      \|    ")
-        print(" |            ")
-        print(" |            ")
+        print(r" |      (_)   ")
+        print(r" |      \|    ")
+        print(r" |            ")
+        print(r" |            ")
     elif (tentativas == 3):
-        print(" |      (_)   ")
-        print(" |      \|/   ")
-        print(" |            ")
-        print(" |            ")
+        print(r" |      (_)   ")
+        print(r" |      \|/   ")
+        print(r" |            ")
+        print(r" |            ")
     elif (tentativas == 2):
-        print(" |      (_)   ")
-        print(" |      \|/   ")
-        print(" |       |    ")
-        print(" |            ")
+        print(r" |      (_)   ")
+        print(r" |      \|/   ")
+        print(r" |       |    ")
+        print(r" |            ")
     elif (tentativas == 1):
-        print(" |      (_)   ")
-        print(" |      \|/   ")
-        print(" |       |    ")
-        print(" |      /     ")
+        print(r" |      (_)   ")
+        print(r" |      \|/   ")
+        print(r" |       |    ")
+        print(r" |      /     ")
     else:
-        print(" |      (_)   ")
-        print(" |      \|/   ")
-        print(" |       |    ")
-        print(" |      / \   ")
-        print(" |            ")
-        print("_|___         ")
+        print(r" |      (_)   ")
+        print(r" |      \|/   ")
+        print(r" |       |    ")
+        print(r" |      / \   ")
+        print(r" |            ")
+        print(r"_|___         ")
         print()
 
 
