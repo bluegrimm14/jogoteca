@@ -9,7 +9,7 @@ def escolha_seu_jogo():
     i = 0
 
     while i != 1:
-        print(" (1) Adivinhação \n (2) Forca (Manuntenção)! \n (3) Parar de Jogar.")
+        print(" (1) Adivinhação. \n (2) Forca.  \n (3) Parar de Jogar.")
         jogo = input("Qual jogo você quer jogar?")
 
         if(jogo.isnumeric()):
@@ -20,11 +20,10 @@ def escolha_seu_jogo():
                 i = 1
                 break
             elif(jogo == 2):
-                print("\nEm Manuntenção!\n")
-                # print("Jogar Forca!\n")
-                # forca.jogar()
-                # i = 1
-                # break
+                print("Jogar Forca!\n")
+                forca.jogar()
+                i = 1
+                break
             elif(jogo == 3):
                 print("\nEncerrando Sistema...")
                 i = 1
